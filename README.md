@@ -1,3 +1,5 @@
+# Name: SANJUSHRI A
+# Register No:212223040187
 # Linux-IPC-Shared-memory
 Ex06-Linux IPC-Shared-memory
 
