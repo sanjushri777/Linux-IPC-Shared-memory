@@ -23,7 +23,7 @@ Execute the C Program for the desired output.
 # PROGRAM:
 
 ## Write a C program that illustrates two processes communicating using shared memory.
-```
+```C
 Writer Program (s2.c)
 #include <stdio.h>
 #include <stdlib.h>
@@ -61,11 +61,8 @@ int main() {
     while (1) {
         char input[SHM_SIZE];
         printf("Enter Some Text: ");
-        fgets(input, SHM_SIZE, stdin);
-        
-        // Remove the newline character from input
-        input[strcspn(input, "\n")] = 0;
-        
+        scanf("%[^\n]%*c", input);  // Read input until newline
+
         if (strcmp(input, "end") == 0) {
             break;  // Exit the loop if "end" is entered
         }
@@ -79,9 +76,10 @@ int main() {
     shmdt(shm);
     return 0;
 }
+
 ```
 Reader Program (s1.c)
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/ipc.h>
